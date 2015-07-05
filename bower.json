@@ -1,5 +1,6 @@
 {
   "name": "purescript-unsafe-coerce",
+  "description": "Unsafe coercion of values.",
   "version": "0.1.0",
   "moduleType": [
     "node"
