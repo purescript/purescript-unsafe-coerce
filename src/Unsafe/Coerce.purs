@@ -18,7 +18,7 @@ module Unsafe.Coerce
 -- | using it as-is. For example:
 -- |
 -- | ```
--- | mapConjToDisp :: forall f a. Array (Conj a) -> Array (Disj a)
+-- | mapConjToDisp :: forall a. Array (Conj a) -> Array (Disj a)
 -- | mapConjToDisp = unsafeCoerce
 -- | ```
 -- |

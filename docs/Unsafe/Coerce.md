@@ -21,7 +21,7 @@ It is highly recommended to define specializations of this function rather than
 using it as-is. For example:
 
 ```
-mapConjToDisp :: forall f a. Array (Conj a) -> Array (Disj a)
+mapConjToDisp :: forall a. Array (Conj a) -> Array (Disj a)
 mapConjToDisp = unsafeCoerce
 ```
 
