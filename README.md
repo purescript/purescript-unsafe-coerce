@@ -2,4 +2,4 @@
 
 Unsafe coercion of values.
 
-- [Module Documentation](docs/)
+- [Module Documentation](docs/Unsafe/Coerce.md)
