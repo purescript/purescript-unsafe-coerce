@@ -1,16 +1,20 @@
 {
   "name": "purescript-unsafe-coerce",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "moduleType": [
     "node"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purescript-contrib/purescript-unsafe-coerce"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "output"
   ],
-  "dependencies": {
+  "devDependencies": {
     "purescript-console": "^0.1.0"
   }
 }
