@@ -20,9 +20,9 @@ for free.
 It is highly recommended to define specializations of this function rather than
 using it as-is. For example:
 
-```
-mapConjToDisp :: forall a. Array (Conj a) -> Array (Disj a)
-mapConjToDisp = unsafeCoerce
+```purescript
+mapConjToDisj :: forall a. Array (Conj a) -> Array (Disj a)
+mapConjToDisj = unsafeCoerce
 ```
 
 This way, you won't have any nasty surprises due to the inferred type being
