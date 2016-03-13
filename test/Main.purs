@@ -1,9 +1,13 @@
 module Test.Main where
 
-import Prelude
-import Unsafe.Coerce (unsafeCoerce)
+import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Console (CONSOLE, log)
 
-import Control.Monad.Eff.Console
+import Data.Functor (class Functor)
+import Data.Semigroup ((<>))
+import Data.Unit (Unit)
+
+import Unsafe.Coerce (unsafeCoerce)
 
 newtype Foo = Foo String
 
@@ -16,8 +20,10 @@ coerceFoo = unsafeCoerce
 
 -- | It is also safe to coerce entire collections, without having to map over
 -- | individual elements.
-coerceFoos :: forall f. (Functor f) => f Foo -> f Bar
+coerceFoos :: forall f. Functor f => f Foo -> f Bar
 coerceFoos = unsafeCoerce
 
-main = case coerceFoos [Foo "Hello", Foo " ", Foo "World"] of
-         [Bar x, Bar y, Bar z] -> log (x <> y <> z)
+main :: Eff (console :: CONSOLE) Unit
+main =
+  case coerceFoos [Foo "Hello", Foo " ", Foo "World"] of
+    [Bar x, Bar y, Bar z] -> log (x <> y <> z)

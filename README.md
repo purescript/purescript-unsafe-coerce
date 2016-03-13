@@ -1,8 +1,19 @@
 # purescript-unsafe-coerce
 
-[![Build Status](https://travis-ci.org/purescript-contrib/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-unsafe-coerce)
-[![Maintainer: hdgarrood](https://img.shields.io/badge/maintainer-hdgarrood-lightgrey.svg)](http://github.com/hdgarrood)
+[![Build Status](https://travis-ci.org/purescript/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript/purescript-unsafe-coerce)
+[![Build Status](https://travis-ci.org/purescript/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript/purescript-unsafe-coerce)
+[![Dependency Status](https://www.versioneye.com/user/projects/56ae47da7e03c7003ba4166b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae47da7e03c7003ba4166b)
 
-Unsafe coercion of values.
+A _highly unsafe_ function, which can be used to persuade the type system that any type is the same as any other type. When using this function, it is your (that is, the caller's) responsibility to ensure that the underlying representation for both types is the same.
 
-- [Module Documentation](docs/Unsafe/Coerce.md)
+There are few situations where it is acceptable to use this function, it should only ever appear as an internal implementation detail of a library, never as a function used in a "normal" codebase.
+
+## Installation
+
+```
+bower install purescript-unsafe-coerce
+```
+
+## Documentation
+
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-unsafe-coerce).
