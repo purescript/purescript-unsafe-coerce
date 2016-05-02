@@ -1,10 +1,7 @@
 {
   "name": "purescript-unsafe-coerce",
   "description": "Unsafe coercion of values.",
-  "version": "0.1.0",
-  "moduleType": [
-    "node"
-  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/purescript-contrib/purescript-unsafe-coerce"
