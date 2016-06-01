@@ -1,6 +1,6 @@
 # purescript-unsafe-coerce
 
-[![Build Status](https://travis-ci.org/purescript/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript/purescript-unsafe-coerce)
+[![Latest release](http://img.shields.io/bower/v/purescript-unsafe-coerce.svg)](https://github.com/purescript/purescript-unsafe-coerce/releases)
 [![Build Status](https://travis-ci.org/purescript/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript/purescript-unsafe-coerce)
 [![Dependency Status](https://www.versioneye.com/user/projects/56ae47da7e03c7003ba4166b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae47da7e03c7003ba4166b)
 
