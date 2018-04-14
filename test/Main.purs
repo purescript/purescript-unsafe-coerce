@@ -1,7 +1,7 @@
 module Test.Main where
 
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, log)
+import Effect (Effect)
+import Effect.Console (log)
 
 import Data.Functor (class Functor)
 import Data.Semigroup ((<>))
@@ -23,7 +23,7 @@ coerceFoo = unsafeCoerce
 coerceFoos :: forall f. Functor f => f Foo -> f Bar
 coerceFoos = unsafeCoerce
 
-main :: Eff (console :: CONSOLE) Unit
+main :: Effect Unit
 main =
   case coerceFoos [Foo "Hello", Foo " ", Foo "World"] of
     [Bar x, Bar y, Bar z] -> log (x <> y <> z)
