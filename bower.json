@@ -1,8 +1,7 @@
 {
   "name": "purescript-unsafe-coerce",
   "homepage": "https://github.com/purescript/purescript-unsafe-coerce",
-  "description": "Unsafe coercion of values.",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/purescript/purescript-unsafe-coerce"
@@ -17,6 +16,6 @@
     "package.json"
   ],
   "devDependencies": {
-    "purescript-console": "^3.0.0"
+    "purescript-console": "^4.0.0"
   }
 }
