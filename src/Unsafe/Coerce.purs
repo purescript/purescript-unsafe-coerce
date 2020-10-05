@@ -8,20 +8,84 @@ module Unsafe.Coerce
 -- | (that is, the caller's) responsibility to ensure that the underlying
 -- | representation for both types is the same.
 -- |
--- | One application for this function is to avoid doing work that you know is a
--- | no-op because of newtypes. For example, if you have an `Array (Conj a)` and you
--- | want an `Array (Disj a)`, you could do `Data.Array.map (runConj >>> Disj)`, but
--- | this performs an unnecessary traversal. `unsafeCoerce` accomplishes the same
--- | for free.
+-- | Note: because this function is extraordinarily flexible, type inference
+-- | can greatly suffer. Whenever you use it, you should add type annotations
+-- | to clarify what the type of it's input value is and the type of it's
+-- | output value.
 -- |
--- | It is highly recommended to define specializations of this function rather than
--- | using it as-is. For example:
+-- | After the v0.14.0 PureScript release, some of what was accomplished via
+-- | `unsafeCoerce` can now be accomplished via `coerce` from
+-- | `purescript-safe-coerce`. See that library's documentation for more
+-- | context.
 -- |
--- | ```purescript
--- | mapConjToDisj :: forall a. Array (Conj a) -> Array (Disj a)
--- | mapConjToDisj = unsafeCoerce
+-- | There are at least two ways you might want to use this function:
+-- | 1. To model existentials
+-- | 2. To model the kinds of arguments an FFI function can take if one or
+-- |    more of its arguments can be multiple types.
+-- |
+-- | ## Modeling Existentials
+-- |
+-- | Let's say you have a type you wish to use internally and expose publicly
+-- | but which end-users should not be able to view or modify. Rather, end-users
+-- | can only pass that value around in their code. One way to accomplish this
+-- | is through existentials. Existentials is not always the best solution to
+-- | such a problem, so consider using alternatives before doing this.
+-- | However, the pattern follows this idea:
+-- | ```
+-- | type PrivateType = Int
+-- |
+-- | -- internally, we need to update some value in our library code.
+-- | internalUse :: PrivateType -> Int
+-- | internaluse privateVal = privateVal + 1
+-- |
+-- | -- Notice that end-users can only pass this value around.
+-- | -- They cannot pattern match on it, modify it, etc. because they
+-- | -- don't know what the value is.
+-- | foreign import data PublicType :: Type
+-- |
+-- | -- Here we convert the type to a different one, but the runtime
+-- | -- representation is still the same.
+-- | exposePublicly :: PrivateType -> PublicType
+-- | exposePublicly = unsafeCoerce
+-- |
+-- | -- This is an example of our library's public API. We provide a
+-- | -- function that controls how the end-user can use the public value
+-- | updateValue :: PublicType -> PublicType
+-- | updateValue = exposePublicly <<< internalUse <<< revealValue
+-- |
+-- | -- Here we convert the PublicType back to our usable PrivateType
+-- | -- so we can use and modify it as we need.
+-- | revealValue :: PublicType -> PrivateType
+-- | revealValue = unsafeCoerce
 -- | ```
 -- |
--- | This way, you won't have any nasty surprises due to the inferred type being
--- | different to what you expected.
+-- | ## Model FFI Functions that Take Multiple Types of Arguments
+-- |
+-- | Let's say you have a JavaScript function, `foo`, that takes either a
+-- | `Boolean` or a `String` as its only argument and returns back an `Int`.
+-- | ```
+-- | -- FFI.js
+-- | exports.foo = function (stringOrBoolean) {
+-- |   // code that does something with a string argument
+-- | };
+-- | ```
+-- | Again, the below approach is not necessarily the best way to do this, but
+-- | might work in your situation. You could write the following:
+-- | ```
+-- | foreign import data StringOrBoolean :: Type
+-- |
+-- | foreign import foo :: StringOrBoolean -> Int
+-- |
+-- | callFooWithString :: String -> Int
+-- | callFooWithString string = foo fixedString
+-- |    where
+-- |    fixedString :: StringOrBoolean
+-- |    fixedString = unsafeCoerce string
+-- |
+-- | callFooWithBoolean :: Boolean -> Int
+-- | callFooWithBoolean bool = foo fixedBoolean
+-- |    where
+-- |    fixedBoolean :: StringOrBoolean
+-- |    fixedBoolean = unsafeCoerce bool
+-- | ```
 foreign import unsafeCoerce :: forall a b. a -> b
