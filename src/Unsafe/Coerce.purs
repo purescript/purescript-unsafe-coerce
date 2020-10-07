@@ -8,10 +8,14 @@ module Unsafe.Coerce
 -- | (that is, the caller's) responsibility to ensure that the underlying
 -- | representation for both types is the same.
 -- |
--- | Note: because this function is extraordinarily flexible, type inference
--- | can greatly suffer. Whenever you use it, you should add type annotations
--- | to clarify what the type of it's input value is and the type of it's
--- | output value.
+-- | Because this function is extraordinarily flexible, type inference
+-- | can greatly suffer. It is highly recommended to define specializations of
+-- | this function rather than using it as-is. For example:
+-- |
+-- | ```purescript
+-- | fromBoolean :: Boolean -> Json
+-- | fromBoolean = unsafeCoerce
+-- | ```
 -- |
 -- | After the v0.14.0 PureScript release, some of what was accomplished via
 -- | `unsafeCoerce` can now be accomplished via `coerce` from
