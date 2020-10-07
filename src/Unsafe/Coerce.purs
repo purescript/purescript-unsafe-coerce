@@ -16,6 +16,7 @@ module Unsafe.Coerce
 -- | fromBoolean :: Boolean -> Json
 -- | fromBoolean = unsafeCoerce
 -- | ```
+-- |
 -- | This way, you won't have any nasty surprises due to the inferred type being
 -- | different to what you expected.
 -- |
