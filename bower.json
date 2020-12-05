@@ -16,6 +16,6 @@
     "package.json"
   ],
   "devDependencies": {
-    "purescript-console": "^4.0.0"
+    "purescript-console": "master"
   }
 }
