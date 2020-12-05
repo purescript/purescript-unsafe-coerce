@@ -1,7 +1,7 @@
 # purescript-unsafe-coerce
 
 [![Latest release](http://img.shields.io/github/release/purescript/purescript-unsafe-coerce.svg)](https://github.com/purescript/purescript-unsafe-coerce/releases)
-[![Build status](https://travis-ci.org/purescript/purescript-unsafe-coerce.svg?branch=master)](https://travis-ci.org/purescript/purescript-unsafe-coerce)
+[![Build status](https://github.com/purescript/purescript-unsafe-coerce/workflows/CI/badge.svg?branch=master)](https://github.com/purescript/purescript-unsafe-coerce/actions?query=workflow%3ACI+branch%3Amaster)
 
 A _highly unsafe_ function, which can be used to persuade the type system that any type is the same as any other type. When using this function, it is your (that is, the caller's) responsibility to ensure that the underlying representation for both types is the same.
 
@@ -10,7 +10,7 @@ There are few situations where it is acceptable to use this function, it should 
 ## Installation
 
 ```
-bower install purescript-unsafe-coerce
+spago install unsafe-coerce
 ```
 
 ## Documentation
