@@ -5,16 +5,19 @@ Notable changes to this project are documented in this file. The format is based
 ## [Unreleased]
 
 Breaking changes:
+- Added support for PureScript 0.14 and dropped support for all previous versions (#11, #12)
 
 New features:
 
 Bugfixes:
 
 Other improvements:
+- Migrated CI to GitHub Actions and updated installation instructions to use Spago (#12)
+- Added a changelog and pull request template (#13, #14)
 
 ## [v4.0.0](https://github.com/purescript/purescript-unsafe-coerce/releases/tag/v4.0.0) - 2018-05-22
 
-Updated for PureScript 0.12
+- Updated for PureScript 0.12
 
 ## [v3.0.0](https://github.com/purescript/purescript-unsafe-coerce/releases/tag/v3.0.0) - 2017-03-25
 
@@ -26,11 +29,6 @@ Updated for PureScript 0.12
 
 ## [v1.0.0](https://github.com/purescript/purescript-unsafe-coerce/releases/tag/v1.0.0) - 2016-06-01
 
-This release is intended for the PureScript 0.9.1 compiler and newer.
+Initial release. This release is intended for the PureScript 0.9.1 compiler and newer.
 
 **Note**: The v1.0.0 tag is not meant to indicate the library is “finished”, the core libraries are all being bumped to this for the 0.9 compiler release so as to use semver more correctly.
-
-## [v1.0.0-rc.1](https://github.com/purescript/purescript-unsafe-coerce/releases/tag/v1.0.0-rc.1) - 2016-03-13
-
-- Release candidate for the psc 0.8+ core libraries
-
