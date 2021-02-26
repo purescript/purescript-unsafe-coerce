@@ -4,7 +4,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/purescript/purescript-unsafe-coerce"
+    "url": "https://github.com/purescript/purescript-unsafe-coerce.git"
   },
   "ignore": [
     "**/.*",
@@ -16,6 +16,6 @@
     "package.json"
   ],
   "devDependencies": {
-    "purescript-console": "master"
+    "purescript-console": "^5.0.0"
   }
 }
