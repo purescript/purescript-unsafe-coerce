@@ -2,6 +2,6 @@
 
 // module Unsafe.Coerce
 
-export var unsafeCoerce = function (x) {
+export const unsafeCoerce = function (x) {
   return x;
 };
