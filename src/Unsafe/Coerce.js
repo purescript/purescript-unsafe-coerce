@@ -1,7 +1,5 @@
-"use strict";
-
 // module Unsafe.Coerce
 
-exports.unsafeCoerce = function (x) {
+export const unsafeCoerce = function (x) {
   return x;
 };
