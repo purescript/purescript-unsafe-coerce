@@ -1,4 +1,3 @@
-
 module Unsafe.Coerce
   ( unsafeCoerce
   ) where
