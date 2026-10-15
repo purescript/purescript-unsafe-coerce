@@ -1,5 +1,6 @@
 package:
   name: unsafe-coerce
+  description: Unsafe coercions between types with the same runtime representation
   build:
     strict: true
     pedanticPackages: true
